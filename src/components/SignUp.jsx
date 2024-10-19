@@ -64,6 +64,48 @@ const SignUp = () => {
           </p>
         </section>
 
+        <div className="flex flex-col gap-2">
+              <label className="text-gray-700">Sign up as:</label>
+              <div className="flex gap-4">
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    name="role"
+                    value="buyer"
+                    checked={formData.role === 'buyer'}
+                    onChange={handleChange}
+                    className="mr-2"
+                  />
+                  Buyer
+                </label>
+
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    name="role"
+                    value="vendor"
+                    checked={formData.role === 'vendor'}
+                    onChange={handleChange}
+                    className="mr-2"
+                  />
+                  Vendor
+                </label>
+
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    name="role"
+                    value="both"
+                    checked={formData.role === 'both'}
+                    onChange={handleChange}
+                    className="mr-2"
+                  />
+                  Both
+                </label>
+
+              </div>
+            </div>
+
         <div className="relative w-full">
           <FaUser className="absolute top-[50%] left-4 transform -translate-y-1/2 text-black" />
           <input
