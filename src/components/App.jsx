@@ -5,11 +5,15 @@ import Hero from "./Hero";
 import ProductCard from "./ProductCard";
 import ProductsPage from "./ProductsPage";
 import Cart from "./Cart";
+import VendorPage from "./VendorPage";
+import SignIn from "./SignIn";
+import  SignUp from "./SignUp";
 import CheckoutPage from "./CheckoutPage";
 
 export default function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+
 
   useEffect(() => {
     fetch("https://safarivendors-backend.vercel.app/products")
@@ -63,7 +67,11 @@ export default function App() {
           element={<ProductsPage handleAddToCart={handleAddToCart} />}
         />
         <Route path="/cart" element={<Cart cartItems={cart} />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/vendor" element={<VendorPage />} />
         <Route path="/checkout" element={<CheckoutPage cartItems={cart} />} />
+
       </Routes>
     </>
   );
