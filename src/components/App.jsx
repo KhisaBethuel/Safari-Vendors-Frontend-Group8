@@ -5,12 +5,14 @@ import NavBar from "./NavBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProductsPage from "./ProductsPage";
 import Cart from "./Cart";
+import VendorPage from "./VendorPage";
 import SignIn from "./SignIn";
 import  SignUp from "./SignUp";
 
 export default function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+
 
   useEffect(() => {
     fetch("https://safarivendors-backend.vercel.app/products")
@@ -69,6 +71,8 @@ export default function App() {
         <Route path="/cart" element={<Cart cartItems={cart} />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/vendor" element={<VendorPage />} />
+
       </Routes>
     </Router>
   );

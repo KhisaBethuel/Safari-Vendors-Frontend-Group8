@@ -52,9 +52,6 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <span className="text-xl font-bold italic ml-2 text-right">
-        SAFARI VENDORS
-      </span>
 
       <ul className="hidden md:flex space-x-4 items-center">
         <li>
@@ -68,6 +65,13 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
+        </li>
+          <li>
+          <Link to="/vendor" className="hover:underline">
+            Vendor Page
+          </Link>
+          </li>
+          <li>
           <Link to="/cart" className="flex items-center hover:underline">
             <img
               src="https://i.pinimg.com/originals/66/22/ab/6622ab37c6db6ac166dfec760a2f2939.gif"
