@@ -5,6 +5,8 @@ import NavBar from "./NavBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProductsPage from "./ProductsPage";
 import Cart from "./Cart";
+import SignIn from "./SignIn";
+import  SignUp from "./SignUp";
 
 export default function App() {
   const [products, setProducts] = useState([]);
@@ -65,6 +67,8 @@ export default function App() {
           element={<ProductsPage handleAddToCart={handleAddToCart} />}
         />
         <Route path="/cart" element={<Cart cartItems={cart} />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
       </Routes>
     </Router>
   );
