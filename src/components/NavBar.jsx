@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-const NavBar = () => {
 
+const NavBar = () => {
   return (
     <nav
       style={{ backgroundColor: "#CBE3E5" }}
-      className="flex justify-between items-center p-4 text-black rounded-bl-3xl rounded-br-3xl">
+      className="flex justify-between items-center p-4 text-black rounded-bl-3xl rounded-br-3xl"
+    >
       <div className="flex items-center space-x-2">
         <Link to="/" className="flex items-center">
           <img
@@ -33,10 +34,15 @@ const NavBar = () => {
         <li>
           <Link to="/cart" className="flex items-center hover:underline">
             <img
-              src="https://i.pinimg.com/originals/66/22/ab/6622ab37c6db6ac166dfec760a2f2939.gif" // Replace with your GIF URL
+              src="https://i.pinimg.com/originals/66/22/ab/6622ab37c6db6ac166dfec760a2f2939.gif"
               alt="Cart"
               className="h-10 w-10"
             />
+          </Link>
+        </li>
+        <li>
+          <Link to="/checkout" className="hover:underline">
+            Checkout
           </Link>
         </li>
       </ul>
