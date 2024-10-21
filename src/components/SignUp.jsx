@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MdEmail } from 'react-icons/md';
 import { FaLock, FaEye, FaEyeSlash, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert2';
 
 
 const SignUp = () => {
@@ -44,8 +45,22 @@ const SignUp = () => {
 
     try {
       console.log('Form Data:', formData);   //see this
+      
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      
+      swal.fire({
+        icon: 'success',
+        title: 'Sign Up Successful!',
+        text: 'You have successfully signed up.',
+      });
+
     } catch (error) {
       console.error('Error signing in', error);
+      swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong! Please try again.',
+      });
     } finally {
       setIsLoading(false);
     }
