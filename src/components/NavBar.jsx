@@ -1,3 +1,6 @@
+<<<<<<< HEAD:src/components/NavBar.jsx
+import { Link } from "react-router-dom";
+=======
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { CiMenuBurger } from "react-icons/ci";
@@ -36,12 +39,19 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+>>>>>>> 6c3cf24e0d94c9c86237ff958612f1ccbd74aa07:src/components/NavBar.js
 
+const NavBar = () => {
   return (
     <nav
       style={{ backgroundColor: "#CBE3E5" }}
+<<<<<<< HEAD:src/components/NavBar.jsx
+      className="flex justify-between items-center p-4 text-black rounded-bl-3xl rounded-br-3xl"
+    >
+=======
       className="flex justify-between items-center p-4 text-black rounded-bl-3xl rounded-br-3xl">
       
+>>>>>>> 6c3cf24e0d94c9c86237ff958612f1ccbd74aa07:src/components/NavBar.js
       <div className="flex items-center space-x-2">
         <Link to="/" className="flex items-center">
           <img
@@ -78,6 +88,11 @@ const Navbar = () => {
               alt="Cart"
               className="h-10 w-10"
             />
+          </Link>
+        </li>
+        <li>
+          <Link to="/checkout" className="hover:underline">
+            Checkout
           </Link>
         </li>
       </ul>
