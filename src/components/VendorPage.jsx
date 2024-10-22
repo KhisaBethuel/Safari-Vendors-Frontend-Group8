@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import VendorCard from "./VendorCard";
+import ReviewPage from "./ReviewPage";
+import AddProduct from "./AddProduct";
 
 const VendorPage = () => {
     const [products, setProducts] = useState([]);
@@ -10,8 +12,7 @@ const VendorPage = () => {
     const [image, setImage] = useState("");
     const [editMode, setEditMode] = useState(false);
     const [editProductId, setEditProductId] = useState(null);
-
-
+    
       // Fetch products from the API
     const fetchProducts = async () => {
         const response = await fetch("https://safarivendors-backend.vercel.app/products/");
@@ -80,6 +81,8 @@ const VendorPage = () => {
         setFilteredProducts(results);
     }, [searchTerm, products]);
 
+    
+
     return (
         <div className="bg-[#bbbbbb] mb-2">
         <div className="flex justify-center items-center mb-10 mt-3">
@@ -92,36 +95,10 @@ const VendorPage = () => {
             />
         </div>
 
-        <h1 className="text-center text-2xl mb-6">Vendor Dashboard</h1>
-        <form onSubmit={handleSubmit} className="mb-6">
-            <input
-                type="text"
-                placeholder="Product Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                className="border p-2 rounded-md mr-2"
-            />
-            <input
-                type="text"
-                placeholder="Product Price"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-                required
-                className="border p-2 rounded-md mr-2"
-            />
-            <input
-                type="text"
-                placeholder="Product Image URL"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-                required
-                className="border p-2 rounded-md mr-2"
-            />
-<button type="submit">{editMode ? "Update Product" : "Add Product"}</button>
-</form>
+        <AddProduct />
+
 <h2 className="text-center text-xl mb-4">Your Products</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pl-10 pr-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 pl-20 pr-20">
                 {filteredProducts.map((product) => (
                     <VendorCard
                         key={product.id}
@@ -129,6 +106,8 @@ const VendorPage = () => {
                         onEdit={handleEdit}
                         onDelete={handleDelete}
                     />
+
+                    
                 ))}
                 </div>
             </div>
