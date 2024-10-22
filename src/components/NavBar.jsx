@@ -1,6 +1,3 @@
-<<<<<<< HEAD:src/components/NavBar.jsx
-import { Link } from "react-router-dom";
-=======
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { CiMenuBurger } from "react-icons/ci";
@@ -15,6 +12,14 @@ const Navbar = () => {
     const token = localStorage.getItem("token");
     setIsLoggedIn(!!token);
   }, []);
+
+  const handleLoginLogout = () => {
+    if (isLoggedIn) {
+      Logout();
+    } else {
+      navigate("/sign-in"); 
+    }
+  };
 
   const Logout = () => {
 
@@ -39,19 +44,12 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
->>>>>>> 6c3cf24e0d94c9c86237ff958612f1ccbd74aa07:src/components/NavBar.js
 
-const NavBar = () => {
   return (
     <nav
       style={{ backgroundColor: "#CBE3E5" }}
-<<<<<<< HEAD:src/components/NavBar.jsx
-      className="flex justify-between items-center p-4 text-black rounded-bl-3xl rounded-br-3xl"
-    >
-=======
-      className="flex justify-between items-center p-4 text-black rounded-bl-3xl rounded-br-3xl">
+      className="flex justify-between items-center p-3 text-black rounded-bl-3xl rounded-br-3xl">
       
->>>>>>> 6c3cf24e0d94c9c86237ff958612f1ccbd74aa07:src/components/NavBar.js
       <div className="flex items-center space-x-2">
         <Link to="/" className="flex items-center">
           <img
@@ -69,6 +67,7 @@ const NavBar = () => {
             Home
           </Link>
         </li>
+        
         <li>
           <Link to="/products" className="hover:underline">
             Products
@@ -76,11 +75,20 @@ const NavBar = () => {
         </li>
         <li>
         </li>
+        
+        <li>
+          <Link to="/sign-in" className="hover:underline"
+          onClick={handleLoginLogout}>
+          {isLoggedIn ? 'Log Out' : 'Sign-In'}
+          </Link>
+        </li>
+          
           <li>
           <Link to="/vendor" className="hover:underline">
             Vendor Page
           </Link>
           </li>
+          
           <li>
           <Link to="/cart" className="flex items-center hover:underline">
             <img
@@ -104,7 +112,7 @@ const NavBar = () => {
       </div>
 
       {isOpen && (
-        <ul className="absolute top-20 left-0 w-full bg-gray-100 flex flex-col space-y-4 items-center p-4 md:hidden">
+        <ul className="absolute top-20 right-0 w-auto bg-white hover:gray-100 flex flex-col space-y-4 items-end p-4 md:hidden z-50">
           <li>
             <Link to="/" className="hover:underline" onClick={() => setIsOpen(false)}>
               Home
@@ -128,13 +136,12 @@ const NavBar = () => {
               )}
             </Link>
           </li>
-          <button onClick={Logout}>
-            logout
-          </button>
+          <Link to="/sign-in" className="hover:underline" onClick={() => setIsOpen(false)}>
+            Sign-in
+          </Link>
         </ul>
       )}
     </nav>
   );
 };
-
 export default Navbar;
