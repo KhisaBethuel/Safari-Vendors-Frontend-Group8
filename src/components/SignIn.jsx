@@ -33,7 +33,7 @@ const SignIn = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="bg-[#CBE3E5] px-6 py-8 sm:px-10 sm:py-12 rounded-lg shadow-md w-full max-w-screen-md">
+      <div className="bg-[#CBE3E5] px-6 py-8 -mt-20 sm:px-10 sm:py-12 rounded-lg shadow-md w-full max-w-screen-md">
         <form className="space-y-6" onSubmit={handleSubmit}>
           <section className="mb-8 text-center">
             <h1 className="font-irishGrover text-3xl sm:text-4xl font-medium">
@@ -92,7 +92,7 @@ const SignIn = () => {
 
           <p className="text-center text-gray-700 mt-4">
             Don't have an account?
-            <Link className="text-blue-500 ml-2" to="/signup">
+            <Link className="text-blue-500 ml-2" to="/sign-up">
               Signup
             </Link>
           </p>
