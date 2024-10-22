@@ -180,7 +180,7 @@ const SignUp = () => {
 
         <p className="text-center text-gray-700 mt-4">
           Already have an account?
-          <Link className="text-blue-500 ml-2" to="/signin">
+          <Link className="text-blue-500 ml-2" to="/sign-in">
             Sign in
           </Link>
         </p>
