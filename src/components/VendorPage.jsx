@@ -81,7 +81,7 @@ const VendorPage = () => {
     }, [searchTerm, products]);
 
     return (
-        <div className="bg-[#bbbbbb] mb-2">
+        <div className="bg-white mb-2">
         <div className="flex justify-center items-center mb-10 mt-3">
             <input
                 type="text"
@@ -121,7 +121,7 @@ const VendorPage = () => {
 <button type="submit">{editMode ? "Update Product" : "Add Product"}</button>
 </form>
 <h2 className="text-center text-xl mb-4">Your Products</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pl-10 pr-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 pl-20 pr-20">
                 {filteredProducts.map((product) => (
                     <VendorCard
                         key={product.id}
