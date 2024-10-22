@@ -16,7 +16,7 @@ function VendorCard({ product, onEdit, onDelete}) {
         <p className="text-black">{product.category}</p>
         <p className="text-black">ksh {product.price}</p>
         </div>
-       <div className="flex space-x-10 ml-8 py-8" >
+    <div className="flex space-x-10 ml-8 py-8" >
             <button 
             className="bg-white text-black px-4 py-2 w-36 rounded shadow hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300"
             onClick={() => onEdit()}

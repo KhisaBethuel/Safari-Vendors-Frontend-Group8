@@ -1,6 +1,4 @@
-<<<<<<< HEAD:src/components/NavBar.jsx
 import { Link } from "react-router-dom";
-=======
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { CiMenuBurger } from "react-icons/ci";
