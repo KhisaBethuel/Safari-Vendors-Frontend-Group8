@@ -9,7 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("access_token");
     setIsLoggedIn(!!token);
   }, []);
 
@@ -69,41 +69,40 @@ const Navbar = () => {
             Products
           </Link>
         </li>
+        {isLoggedIn && (
+          <>
+            <li>
+              <Link to="/vendor" className="hover:underline">
+                Vendor Page
+              </Link>
+            </li>
+            <li>
+              <Link to="/cart" className="flex items-center hover:underline">
+                <img
+                  src="https://i.pinimg.com/originals/66/22/ab/6622ab37c6db6ac166dfec760a2f2939.gif"
+                  alt="Cart"
+                  className="h-10 w-10"
+                />
+              </Link>
+            </li>
+            <li>
+              <Link to="/checkout" className="hover:underline">
+                Checkout
+              </Link>
+            </li>
+            <li>
+              <Link to="/orders" className="hover:underline">
+                Orders
+              </Link>
+            </li>
+          </>
+        )}
         <li>
           <Link
             to="/sign-in"
             className="hover:underline"
             onClick={handleLoginLogout}>
             {isLoggedIn ? "Log Out" : "Sign-In"}
-          </Link>
-        </li>
-        <li>
-          <Link to="/vendor" className="hover:underline">
-            Vendor Page
-          </Link>
-        </li>
-        <li>
-          <Link to="/cart" className="flex items-center hover:underline">
-            <img
-              src="https://i.pinimg.com/originals/66/22/ab/6622ab37c6db6ac166dfec760a2f2939.gif"
-              alt="Cart"
-              className="h-10 w-10"
-            />
-          </Link>
-        </li>
-        <li>
-          <Link to="/checkout" className="hover:underline">
-            Checkout
-          </Link>
-        </li>
-        <li>
-          <Link to="/orders" className="hover:underline">
-            Orders
-          </Link>
-        </li>
-        <li>
-          <Link to="/reviews" className="hover:underline">
-            Reviews
           </Link>
         </li>
       </ul>
@@ -142,11 +141,6 @@ const Navbar = () => {
                   className="h-10 w-10"
                 />
               )}
-            </Link>
-          </li>
-          <li>
-            <Link to="/reviews" className="hover:underline">
-              Reviews
             </Link>
           </li>
           <button onClick={Logout}>logout</button>

@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
-import { MdEmail } from 'react-icons/md';
-import { FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { MdEmail } from "react-icons/md";
+import { FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import swal from "sweetalert2";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
     showPassword: false,
   });
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,10 +24,44 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+
     try {
-      console.log('Form Data:', formData); 
+      const response = await fetch("http://127.0.0.1:8080/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem("refresh_token", data.refresh_token);
+
+        swal.fire({
+          icon: "success",
+          title: "Login Successful!",
+          text: "Welcome back!",
+        });
+
+        navigate("/");
+      } else {
+        swal.fire({
+          icon: "error",
+          title: "Login Failed",
+          text: data.message || "Invalid username or password!",
+        });
+      }
     } catch (error) {
-      console.error('Error signing in', error);
+      console.error("Error signing in:", error);
+      swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong! Please try again.",
+      });
     } finally {
       setIsLoading(false);
     }
@@ -60,7 +96,7 @@ const SignIn = () => {
           <div className="relative w-full">
             <FaLock className="absolute top-[50%] left-4 transform -translate-y-1/2 text-black" />
             <input
-              type={formData.showPassword ? 'text' : 'password'}
+              type={formData.showPassword ? "text" : "password"}
               name="password"
               value={formData.password}
               placeholder="Password"
@@ -70,8 +106,7 @@ const SignIn = () => {
             />
             <div
               className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer"
-              onClick={togglePasswordVisibility}
-            >
+              onClick={togglePasswordVisibility}>
               {formData.showPassword ? (
                 <FaEyeSlash className="text-black text-lg" />
               ) : (
@@ -84,16 +119,15 @@ const SignIn = () => {
             type="submit"
             disabled={isLoading}
             className={`w-full py-3 text-white bg-gradient-to-br from-blue-500 to-blue-400 rounded-lg focus:outline-none transition-opacity ${
-              isLoading ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
-          >
-            {isLoading ? 'Logging in...' : 'Sign in'}
+              isLoading ? "opacity-50 cursor-not-allowed" : ""
+            }`}>
+            {isLoading ? "Logging in..." : "Sign in"}
           </button>
 
           <p className="text-center text-gray-700 mt-4">
             Don't have an account?
             <Link className="text-blue-500 ml-2" to="/sign-up">
-              Signup
+              Sign up
             </Link>
           </p>
         </form>

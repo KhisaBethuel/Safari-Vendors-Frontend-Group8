@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import VendorCard from "./VendorCard";
-import ReviewPage from "./ReviewPage";
 import AddProduct from "./AddProduct";
 
 const VendorPage = () => {
