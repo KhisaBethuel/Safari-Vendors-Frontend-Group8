@@ -10,6 +10,7 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import CheckoutPage from "./CheckoutPage";
 import OrdersPage from "./OrdersPage";
+import ReviewPage from "./ReviewPage";
 
 export default function App() {
   const [products, setProducts] = useState([]);
@@ -87,6 +88,7 @@ export default function App() {
         <Route path="/vendor" element={<VendorPage />} />
         <Route path="/checkout" element={<CheckoutPage cartItems={cart} />} />
         <Route path="/orders" element={<OrdersPage cartItems={cart} />} />
+        <Route path="/reviews" element={<ReviewPage />} />
       </Routes>
     </>
   );

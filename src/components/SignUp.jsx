@@ -34,7 +34,7 @@ const SignUp = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    //check if password meets criteria
+    
     if (!validatePassword(formData.password)) {
       setPasswordError('Password must be at least 8 characters long and contain at least one number and one special character.');
       setIsLoading(false);
@@ -105,19 +105,6 @@ const SignUp = () => {
                   />
                   Vendor
                 </label>
-
-                <label className="flex items-center">
-                  <input
-                    type="radio"
-                    name="role"
-                    value="both"
-                    checked={formData.role === 'both'}
-                    onChange={handleChange}
-                    className="mr-2"
-                  />
-                  Both
-                </label>
-
               </div>
             </div>
 

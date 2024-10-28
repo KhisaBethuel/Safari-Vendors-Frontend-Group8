@@ -3,7 +3,6 @@ import React from "react";
 const CheckoutPage = ({ cartItems }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission, e.g., send data to a backend
     alert("Order submitted successfully!");
   };
 

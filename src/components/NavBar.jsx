@@ -47,7 +47,7 @@ const Navbar = () => {
   return (
     <nav
       style={{ backgroundColor: "#CBE3E5" }}
-    className="flex justify-between items-center p-4 text-black rounded-bl-3xl rounded-br-3xl">
+      className="flex justify-between items-center p-4 text-black rounded-bl-3xl rounded-br-3xl">
       <div className="flex items-center space-x-2">
         <Link to="/" className="flex items-center">
           <img
@@ -63,24 +63,26 @@ const Navbar = () => {
             Home
           </Link>
         </li>
-        
+
         <li>
           <Link to="/products" className="hover:underline">
             Products
           </Link>
         </li>
         <li>
-          <Link to="/sign-in" className="hover:underline"
-          onClick={handleLoginLogout}>
-          {isLoggedIn ? 'Log Out' : 'Sign-In'}
+          <Link
+            to="/sign-in"
+            className="hover:underline"
+            onClick={handleLoginLogout}>
+            {isLoggedIn ? "Log Out" : "Sign-In"}
           </Link>
         </li>
         <li>
           <Link to="/vendor" className="hover:underline">
             Vendor Page
           </Link>
-          </li>
-          <li>
+        </li>
+        <li>
           <Link to="/cart" className="flex items-center hover:underline">
             <img
               src="https://i.pinimg.com/originals/66/22/ab/6622ab37c6db6ac166dfec760a2f2939.gif"
@@ -99,6 +101,11 @@ const Navbar = () => {
             Orders
           </Link>
         </li>
+        <li>
+          <Link to="/reviews" className="hover:underline">
+            Reviews
+          </Link>
+        </li>
       </ul>
       <div className="md:hidden">
         <CiMenuBurger className="size-6" onClick={toggleMenu} />
@@ -106,17 +113,26 @@ const Navbar = () => {
       {isOpen && (
         <ul className="absolute top-20 right-0 w-auto bg-white hover:gray-100 flex flex-col space-y-4 items-end p-4 md:hidden z-50">
           <li>
-            <Link to="/" className="hover:underline" onClick={() => setIsOpen(false)}>
+            <Link
+              to="/"
+              className="hover:underline"
+              onClick={() => setIsOpen(false)}>
               Home
             </Link>
           </li>
           <li>
-            <Link to="/products" className="hover:underline" onClick={() => setIsOpen(false)}>
+            <Link
+              to="/products"
+              className="hover:underline"
+              onClick={() => setIsOpen(false)}>
               Products
             </Link>
           </li>
           <li>
-            <Link to="/cart" className="flex items-center hover:underline" onClick={() => setIsOpen(false)}>
+            <Link
+              to="/cart"
+              className="flex items-center hover:underline"
+              onClick={() => setIsOpen(false)}>
               {isOpen ? (
                 <span className="text-lg">Cart</span>
               ) : (
@@ -128,9 +144,12 @@ const Navbar = () => {
               )}
             </Link>
           </li>
-          <button onClick={Logout}>
-            logout
-          </button>
+          <li>
+            <Link to="/reviews" className="hover:underline">
+              Reviews
+            </Link>
+          </li>
+          <button onClick={Logout}>logout</button>
         </ul>
       )}
     </nav>
