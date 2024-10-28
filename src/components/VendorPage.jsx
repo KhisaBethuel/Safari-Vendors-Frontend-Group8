@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import VendorCard from "./VendorCard";
+import ReviewPage from "./ReviewPage";
 import AddProduct from "./AddProduct";
 
 const VendorPage = () => {
@@ -80,6 +81,8 @@ const VendorPage = () => {
         setFilteredProducts(results);
     }, [searchTerm, products]);
 
+    
+
     return (
         <div className="bg-[#bbbbbb] mb-2">
         <div className="flex justify-center items-center mb-10 mt-3">
@@ -103,11 +106,11 @@ const VendorPage = () => {
                         onEdit={handleEdit}
                         onDelete={handleDelete}
                     />
+
+                    
                 ))}
                 </div>
             </div>
-           
-        
         );
     };
 export default VendorPage;
