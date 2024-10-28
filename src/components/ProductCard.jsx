@@ -4,6 +4,7 @@ function ProductCard({ product, handleAddToCart }) {
   const addToCart = () => {
     if (handleAddToCart) {
       handleAddToCart(product);
+      alert("Product added to cart successfully")
     } else {
       console.error("handleAddToCart is not defined");
     }

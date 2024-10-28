@@ -25,7 +25,7 @@ const SignUp = () => {
 
   // Password validation
   const validatePassword = (password) => {
-    const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&])[a-zA-Z0-9!@#$%^&]{8,}$/;
+    const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&])(?=.*[a-zA-Z]).{8,}$/;
     return passwordRegex.test(password);
   };
 
@@ -45,18 +45,21 @@ const SignUp = () => {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8080/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: formData.name,
-          email: formData.email,
-          password: formData.password,
-          user_type: formData.role,
-        }),
-      });
+      const response = await fetch(
+        "https://safari-vendors-backend.onrender.com/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: formData.name,
+            email: formData.email,
+            password: formData.password,
+            user_type: formData.role,
+          }),
+        }
+      );
 
       const result = await response.json();
 
@@ -65,6 +68,8 @@ const SignUp = () => {
           icon: "success",
           title: "Sign Up Successful!",
           text: result.message,
+
+          
         });
       } else {
         swal.fire({
@@ -179,7 +184,7 @@ const SignUp = () => {
             className={`w-full py-3 text-white bg-gradient-to-br from-blue-500 to-blue-400 rounded-lg focus:outline-none transition-opacity ${
               isLoading ? "opacity-50 cursor-not-allowed" : ""
             }`}>
-            {isLoading ? "Logging in..." : "Sign up"}
+            {isLoading ? "Signing up..." : "Sign up"}
           </button>
 
           <p className="text-center text-gray-700 mt-4">

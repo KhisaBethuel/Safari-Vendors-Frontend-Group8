@@ -71,11 +71,7 @@ const Navbar = () => {
         </li>
         {isLoggedIn && (
           <>
-            <li>
-              <Link to="/vendor" className="hover:underline">
-                Vendor Page
-              </Link>
-            </li>
+        
             <li>
               <Link to="/cart" className="flex items-center hover:underline">
                 <img
@@ -83,16 +79,6 @@ const Navbar = () => {
                   alt="Cart"
                   className="h-10 w-10"
                 />
-              </Link>
-            </li>
-            <li>
-              <Link to="/checkout" className="hover:underline">
-                Checkout
-              </Link>
-            </li>
-            <li>
-              <Link to="/orders" className="hover:underline">
-                Orders
               </Link>
             </li>
           </>
