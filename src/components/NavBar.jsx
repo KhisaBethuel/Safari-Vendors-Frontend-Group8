@@ -48,7 +48,7 @@ const Navbar = () => {
   return (
     <nav
       style={{ backgroundColor: "#CBE3E5" }}
-      className="flex justify-between items-center p-3 text-black rounded-bl-3xl rounded-br-3xl">
+      className="flex justify-between items-center p-3 text-black rounded-br-3xl">
       
       <div className="flex items-center space-x-2">
         <Link to="/" className="flex items-center">
